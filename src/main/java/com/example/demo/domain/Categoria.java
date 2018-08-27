@@ -22,6 +22,7 @@ public class Categoria implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	private String nome;
+	private int idade;
 //criando emcapsulamento básico.
 	public Categoria() {
 	}
@@ -72,6 +73,14 @@ public class Categoria implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public int getIdade() {
+		return idade;
+	}
+
+	public void setIdade(int idade) {
+		this.idade = idade;
 	}
 	
 	
