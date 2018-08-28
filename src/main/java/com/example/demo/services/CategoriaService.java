@@ -13,7 +13,7 @@ import com.example.demo.repositories.CategoriaRepository;
 // criando um operacao que busca um categoria por codigo
 public class CategoriaService {
 
-	// Autowired instancia a dependia automaticamente pelo spring
+	// Autowired instancia a dependecia automaticamente pelo spring
 	@Autowired
 	private CategoriaRepository repo;
 
