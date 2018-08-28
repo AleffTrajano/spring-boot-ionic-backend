@@ -11,6 +11,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 //jpa faz o mapeamento  objeto relacional criando as tabelas no banco usa a anotação entity
 @Entity
 public class Categoria implements Serializable {
@@ -29,6 +31,8 @@ public class Categoria implements Serializable {
 	// criando a lista de produtos e Associações categoria com produto alem de
 	// inicia as coleções.
 
+	
+	@JsonManagedReference//coloca essa anotação para vim os obj associados.
 	//fechando o mapeamento muitos para muitos dos dois lados. produto e categoria.
 	@ManyToMany(mappedBy="categorias")
 	private List<Produto> produtos = new ArrayList<>();
