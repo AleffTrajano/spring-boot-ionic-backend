@@ -1,10 +1,5 @@
 package com.example.demo.resources;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.xml.ws.Response;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
