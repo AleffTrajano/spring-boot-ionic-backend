@@ -22,7 +22,7 @@ public class ClienteService {
 	 * vamos usa o objeto criado repo para busca no banco de dados uma categoria
 	 * da um certo id
 	 */
-	public Cliente busca(Integer id) {
+	public Cliente find(Integer id) {
 		Optional<Cliente> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 		"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));

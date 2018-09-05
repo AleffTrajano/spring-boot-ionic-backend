@@ -22,15 +22,20 @@ public class CategoriaService {
 	 * vamos usa o objeto criado repo para busca no banco de dados uma categoria
 	 * da um certo id
 	 */
-	public Categoria busca(Integer id) {
+	public Categoria find(Integer id) {
 		Optional<Categoria> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
-		"Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
-		}
-	
-	public Categoria insert(Categoria obj){
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
+	}
+
+	public Categoria insert(Categoria obj) {
 		obj.setId(null);
 		return repo.save(obj);
 	}
+
+	public Categoria Update(Categoria obj) {
+		find(obj.getId());//garantir que o id existar
+		return repo.save(obj);
 	}
 
+}

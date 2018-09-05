@@ -22,7 +22,7 @@ public class PedidoService {
 	 * vamos usa o objeto criado repo para busca no banco de dados uma categoria
 	 * da um certo id
 	 */
-	public Pedido busca(Integer id) {
+	public Pedido find(Integer id) {
 		Optional<Pedido> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 		"Objeto não encontrado! Id: " + id + ", Tipo: " + Pedido.class.getName()));
