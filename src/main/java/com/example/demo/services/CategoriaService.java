@@ -1,5 +1,6 @@
 package com.example.demo.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,23 +36,23 @@ public class CategoriaService {
 	}
 
 	public Categoria update(Categoria obj) {
-		find(obj.getId());//garantir que o id existar
+		find(obj.getId());// garantir que o id existar
 		return repo.save(obj);
 	}
-	
-	public void delete(Integer id){
+
+	public void delete(Integer id) {
 		find(id);
-		try{
+		try {
 			repo.deleteById(id);
+		} catch (DataIntegrityViolationException e) {
+			throw new com.example.demo.services.exceptions.DataIntegrityException(
+					"Não é possível excluir uma categoria que possui produtos");
+
 		}
-		catch (DataIntegrityViolationException e){
-			throw new com.example.demo.services.exceptions.DataIntegrityException("Não é possível excluir uma categoria que possui produtos");
-			
-		}
-		
-		
-	
-		
-		}
+	}
+
+	public List<Categoria> findAll() {
+		return repo.findAll();
+	}
 
 }
