@@ -3,11 +3,14 @@ package com.example.demo.dto;
 import java.io.Serializable;
 
 import com.example.demo.domain.Cliente;
+import com.example.demo.services.validation.ClienteUpdate;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.validator.constraints.Length;
 
+@ClienteUpdate
 public class ClienteDTO implements Serializable {
 	private static final long serialVersionUID = 1L;
 
