@@ -109,7 +109,7 @@ public class Pedido implements Serializable {
 	}
 	
 	
-	public void setItens(Set<ItemPedido> itens) {
+    public void setItens(Set<ItemPedido> itens) {
 		this.itens = itens;
 	}
 
