@@ -138,6 +138,31 @@ public class Pedido implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder builder = new StringBuilder();
+		builder.append("Pedido numero");
+		builder.append(getId());
+		builder.append(", Instante: ");
+		builder.append(getInstante());
+		builder.append(", Cliente:");
+		builder.append(getCliente().getNome());
+		builder.append("situação do pagamento");
+		try {
+			builder.append(getPagamento().getEstado().getDescricao());
+		} catch (IllegalAccessException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		builder.append("\nDetalhes: \n");
+		for (ItemPedido ip : getItens()){
+			builder.append(ip.toString());
+		}
+		builder.append("valor total");
+		builder.append(getValorTotal());
+		return builder.toString();
+	}
+
 	
 	
 	

@@ -12,6 +12,7 @@ import com.example.demo.domain.ItemPedido;
 import com.example.demo.domain.PagamentoComBoleto;
 import com.example.demo.domain.Pedido;
 import com.example.demo.domain.enums.EstadoPagamento;
+import com.example.demo.repositories.ClienteRepository;
 import com.example.demo.repositories.ItemPedidoRepository;
 import com.example.demo.repositories.PagamentoRepository;
 import com.example.demo.repositories.PedidoRepository;
@@ -39,6 +40,9 @@ public class PedidoService {
 	
 	@Autowired
 	private  ItemPedidoRepository itemPedidoRepository;
+	
+	@Autowired
+	private ClienteRepository clienteRepository;
 	/*
 	 * vamos usa o objeto criado repo para busca no banco de dados uma categoria
 	 * da um certo id
@@ -69,6 +73,7 @@ public class PedidoService {
 			ip.setPedido(obj);
 		}
 		itemPedidoRepository.saveAll(obj.getItens());
+		System.out.println(obj);
 		return obj;
 	}
 }
