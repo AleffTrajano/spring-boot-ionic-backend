@@ -28,7 +28,7 @@ public class CategoriaService {
 	 * vamos usa o objeto criado repo para busca no banco de dados uma categoria
 	 * da um certo id
 	 */
-	public Categoria find(Integer id) {
+	public Categoria busca(Integer id) {
 		Optional<Categoria> obj = repo.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException(
 				"Objeto não encontrado! Id: " + id + ", Tipo: " + Categoria.class.getName()));
@@ -40,13 +40,13 @@ public class CategoriaService {
 	}
 
 	public Categoria update(Categoria obj) {
-		Categoria newObj = find(obj.getId());// garantir que o id existar
+		Categoria newObj = busca(obj.getId());// garantir que o id existar
 		updateData(newObj, obj);
 		return repo.save(newObj);
 	}
 
 	public void delete(Integer id) {
-		find(id);
+		busca(id);
 		try {
 			repo.deleteById(id);
 		} catch (DataIntegrityViolationException e) {

@@ -45,6 +45,9 @@ public class ClienteResource {
 		Cliente obj = service.find(id);
 		return ResponseEntity.ok().body(obj);
 	}
+	
+	
+	
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody ClienteNewDTO objDto) throws IllegalAccessException {
 		Cliente obj = service.fromDTO(objDto);
@@ -82,8 +85,8 @@ public class ClienteResource {
 
 	}
 
-	@RequestMapping(value = "/page", method = RequestMethod.GET)
-	public ResponseEntity<Page<ClienteDTO>> findPage(@RequestParam(value = "page", defaultValue = "0") Integer page,
+	@RequestMapping(value ="/page", method = RequestMethod.GET)
+	public ResponseEntity<Page<ClienteDTO>> findPage(@RequestParam(value ="page", defaultValue = "0") Integer page,
 			
 			@RequestParam(value = "linesPerPage", defaultValue = "24") Integer linesPerPage,
 			@RequestParam(value = "orderby", defaultValue = "nome") String ordeBy,

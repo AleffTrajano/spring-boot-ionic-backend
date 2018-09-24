@@ -7,6 +7,6 @@ import com.example.demo.domain.Categoria;
 /*CategoriaRepository realiza operações de acesso a dados busca,salva ets referente
 ao objeto categoria que esta mapeado com a tabela categoria no banco */
 @Repository
-public interface CategoriaRepository extends JpaRepository<Categoria,Integer> {
+public interface CategoriaRepository extends JpaRepository<Categoria, Integer> {
 
 }
